@@ -1,7 +1,7 @@
 
 Import-Csv -Path ".\data.csv" | % {
 
-    $group = "Class-$($_.class)"
+    $group = $_.class
     $user = Get-ADUser $_.user
 
     Add-ADGroupMember -Identity $group -Members $user
